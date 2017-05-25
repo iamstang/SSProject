@@ -101,7 +101,7 @@ public class ChooseCharacterWindow {
 		
 		prevHeadButton = new JButton("");
 		prevHeadButton.setBounds(114, 127, 20, 20);
-		prevHeadButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/>.gif")));
+		prevHeadButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/prev.gif")));
 		prevHeadButton.setOpaque(false);
 		prevHeadButton.setContentAreaFilled(false);
 		prevHeadButton.setBorderPainted(false);
@@ -117,7 +117,7 @@ public class ChooseCharacterWindow {
 		});
 		
 		nextHeadButton = new JButton("");
-		nextHeadButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/<.gif")));
+		nextHeadButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/next.gif")));
 		nextHeadButton.setOpaque(false);
 		nextHeadButton.setContentAreaFilled(false);
 		nextHeadButton.setBorderPainted(false);
@@ -135,7 +135,7 @@ public class ChooseCharacterWindow {
 		
 		prevBodyButton = new JButton("");
 		prevBodyButton.setBounds(114, 160, 20, 20);
-		prevBodyButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/>.gif")));
+		prevBodyButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/prev.gif")));
 		prevBodyButton.setOpaque(false);
 		prevBodyButton.setContentAreaFilled(false);
 		prevBodyButton.setBorderPainted(false);
@@ -152,7 +152,7 @@ public class ChooseCharacterWindow {
 		
 		nextBodyButton = new JButton("");
 		nextBodyButton.setBounds(214, 160, 20, 20);
-		nextBodyButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/<.gif")));
+		nextBodyButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/next.gif")));
 		nextBodyButton.setOpaque(false);
 		nextBodyButton.setContentAreaFilled(false);
 		nextBodyButton.setBorderPainted(false);
@@ -169,7 +169,7 @@ public class ChooseCharacterWindow {
 		
 		prevLegButton = new JButton("");
 		prevLegButton.setBounds(114, 193, 20, 20);
-		prevLegButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/>.gif")));
+		prevLegButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/prev.gif")));
 		prevLegButton.setOpaque(false);
 		prevLegButton.setContentAreaFilled(false);
 		prevLegButton.setBorderPainted(false);
@@ -186,7 +186,7 @@ public class ChooseCharacterWindow {
 		
 		nextLegButton = new JButton("");
 		nextLegButton.setBounds(214, 193, 20, 20);
-		nextLegButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/<.gif")));
+		nextLegButton.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/next.gif")));
 		nextLegButton.setOpaque(false);
 		nextLegButton.setContentAreaFilled(false);
 		nextLegButton.setBorderPainted(false);
