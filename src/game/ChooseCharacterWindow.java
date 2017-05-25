@@ -17,6 +17,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
+import java.awt.BorderLayout;
 
 public class ChooseCharacterWindow {
 
@@ -87,18 +88,22 @@ public class ChooseCharacterWindow {
 	
 		headPanel.setBounds(31, 98, 50, 50);
 		frame.getContentPane().add(headPanel);
+		headPanel.setLayout(new BorderLayout(0, 0));
 		headPanel.add(headLabel);
 		
 		bodyPanel = new JPanel();
 		bodyPanel.setOpaque(false);
 		bodyPanel.setBounds(6, 151, 100, 40);
 		frame.getContentPane().add(bodyPanel);
+		bodyPanel.setLayout(new BorderLayout(0, 0));
+		bodyLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		bodyPanel.add(bodyLabel);
 		
 		legPanel = new JPanel();
 		legPanel.setOpaque(false);
 		legPanel.setBounds(31, 193, 50, 20);
 		frame.getContentPane().add(legPanel);
+		legPanel.setLayout(new BorderLayout(0, 0));
 		legPanel.add(legLabel);
 		
 		prevHeadButton = new JButton("");
@@ -228,6 +233,7 @@ public class ChooseCharacterWindow {
 		txtInsertName.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e){
+            	if(txtInsertName.getText().equals("insert name..."))
                 txtInsertName.setText("");
             }
         });

@@ -53,6 +53,8 @@ public class WelcomePage {
 	
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(42, 42, 42));
+	   	frame.setResizable(false);
+     	frame.setUndecorated(true);
    
 		frame.setBounds(100, 100, 240, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
