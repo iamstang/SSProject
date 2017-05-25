@@ -1,1 +1,7 @@
+/abstractFactory/
 /game/
+/legPart/
+/bodyPart/
+/headPart/
+/entity/
+/monster/

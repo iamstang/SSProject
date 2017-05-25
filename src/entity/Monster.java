@@ -3,11 +3,11 @@ package entity;
 import java.awt.image.BufferedImage;
 
 public class Monster {
-	private int x;
-	private int y;
-	private int vX;
+	protected int x;
+	protected int y;
+	protected int vX;
 	private BufferedImage img;
-	private boolean active;
+	protected boolean active;
 	public Monster(int x, int y, int vX, BufferedImage img) {
 		this.x = x;
 		this.y = y;
@@ -42,29 +42,36 @@ public class Monster {
 	public BufferedImage getImg() {
 		return this.img;
 	}
-	public void update(RobotHead robotHead, Robot robot) {
+	public int update(RobotHead robotHead, Robot robot) {
+		int updateScore = 0;
 		if (active) {
 			x-=vX;
 		} else {
-			this.y = (int)(Math.random()*250);
-			this.vX = (int)(Math.random()*18);
-			this.x = 800;
-			active = true;
+			respawn();
 		}
 		if (robotHead.getX() > x && robotHead.getY() < y+50 && robotHead.getY() > y-50) {
-			//score
+			updateScore = 100;
 			active = false;
 		}
 		if (x < -2000) {
 			active = false;
 		}
-		isHit(robot);
+		if (isHit(robot)) {
+			//Game over!
+		}
+		return updateScore;
 	}
 	public boolean isHit(Robot robot) {
 		if (x == robot.getX() && robot.getY() < y+100 && robot.getY() > y-100) {
 			return true;
 		}
 		return false;
+	}
+	public void respawn() {
+		this.y = (int)(Math.random()*250);
+		this.vX = (int)(Math.random()*18);
+		this.x = 800;
+		active = true;
 	}
 
 }

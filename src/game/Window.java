@@ -45,7 +45,7 @@ public class Window extends JFrame implements Observer {
 				super.paint(g);
 				g.setColor(Color.white);
 				g.fillRect(0, 0, width, height);
-				drawCharacter(g);
+				drawCharacters(g);
 			}
 
 		};
@@ -53,7 +53,7 @@ public class Window extends JFrame implements Observer {
 
 	}
 
-	private void drawCharacter(Graphics g) {
+	private void drawCharacters(Graphics g) {
 		//Robot Render
 		g.drawImage(game.getRobot().getHeadImg(), viewOffset + game.getRobot().getX(),
 				height - (game.getRobot().getY() + game.getRobot().getHeight()+90), this);
