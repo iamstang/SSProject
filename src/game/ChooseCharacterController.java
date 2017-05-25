@@ -93,7 +93,6 @@ public class ChooseCharacterController {
 
 		if ( bodyIterator.hasNext() ){
 			Part a = bodyIterator.next();
-			System.out.println(bodyIterator.index);
 			window.bodyLabel.setIcon(new ImageIcon(a.getImage()));
 			window.bodyNameLabel.setText(a.getName());
 		}
