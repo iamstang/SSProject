@@ -54,9 +54,9 @@ public class ChooseCharacterController {
 		headArr[3] = headFactory.getHead(4);
 
 
-		//		window.headLabel.setIcon(new ImageIcon(headArr[0].getImage()));
-		//		window.bodyLabel.setIcon(new ImageIcon(bodyArr[0].getImage()));
-		//		window.legLabel.setIcon(new ImageIcon(legArr[0].getImage()));
+		window.headLabel.setIcon(new ImageIcon(headArr[0].getImage()));
+				window.bodyLabel.setIcon(new ImageIcon(bodyArr[0].getImage()));
+			window.legLabel.setIcon(new ImageIcon(legArr[0].getImage()));
 
 		headIterator = new NormalIterator(headArr);
 		bodyIterator = new NormalIterator(bodyArr);

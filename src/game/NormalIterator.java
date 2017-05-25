@@ -10,7 +10,7 @@ public class NormalIterator implements Iterator<Part> {
 	
 	public NormalIterator(Part[] p){
 		items = p;
-		index = -1;
+		index = 0;
 	}
 	
 	@Override

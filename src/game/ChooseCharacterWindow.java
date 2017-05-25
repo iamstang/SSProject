@@ -201,21 +201,21 @@ public class ChooseCharacterWindow {
 			
 		});
 		
-		headNameLabel = new JLabel("head");
+		headNameLabel = new JLabel("head1");
 		headNameLabel.setForeground(Color.WHITE);
 		headNameLabel.setFont(new Font("Humanoid", Font.PLAIN, 16));
 		headNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		headNameLabel.setBounds(136, 128, 77, 20);
 		frame.getContentPane().add(headNameLabel);
 		
-		bodyNameLabel = new JLabel("body");
+		bodyNameLabel = new JLabel("body1");
 		bodyNameLabel.setFont(new Font("Humanoid", Font.PLAIN, 16));
 		bodyNameLabel.setForeground(Color.WHITE);
 		bodyNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		bodyNameLabel.setBounds(136, 161, 77, 20);
 		frame.getContentPane().add(bodyNameLabel);
 		
-		legNameLabel = new JLabel("leg");
+		legNameLabel = new JLabel("leg1");
 		legNameLabel.setForeground(Color.WHITE);
 		legNameLabel.setFont(new Font("Humanoid", Font.PLAIN, 16));
 		legNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
