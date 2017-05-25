@@ -1,12 +1,12 @@
 package state;
 import java.awt.image.BufferedImage;
 
-import entity.Player;
+import entity.Robot;
 
 public class StateJump implements State{
-	Player player;
+	Robot player;
 	
-	public StateJump(Player player) {
+	public StateJump(Robot player) {
 		this.player = player;
 	}
 	@Override
@@ -15,7 +15,7 @@ public class StateJump implements State{
 	}
 	@Override
 	public void launchHead() {
-		player.setHeadlessTime(100);
+		player.setHeadlessTime(80);
 		player.setState(new StateHeadless(player));
 	}
 	@Override

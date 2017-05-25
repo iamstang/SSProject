@@ -1,11 +1,11 @@
 package state;
 import java.awt.image.BufferedImage;
 
-import entity.Player;
+import entity.Robot;
 
 public class StateHeadless implements State{
-	private Player player;
-	public StateHeadless(Player player) {
+	private Robot player;
+	public StateHeadless(Robot player) {
 		this.player = player;
 	}
 	@Override

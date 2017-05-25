@@ -8,15 +8,14 @@ import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-
-import javax.imageio.ImageIO;
+import entity.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import entity.Player;
+import entity.Robot;
 
 public class Window extends JFrame implements Observer {
 	private int width = 640;
@@ -26,11 +25,11 @@ public class Window extends JFrame implements Observer {
 	private JPanel drawPanel;
 	private Game game;
 
-	public Window(Player player) {
+	public Window(Robot robot) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		initComponents();
 		addKeyListener(new Controller());
-		game = new Game(player);
+		game = new Game(robot);
 		game.addObserver(this);
 		pack();
 	}
@@ -55,23 +54,30 @@ public class Window extends JFrame implements Observer {
 	}
 
 	private void drawCharacter(Graphics g) {
-		g.drawImage(game.getHeadImg(), viewOffset + game.getPlayerX(),
-				height - (game.getPlayerY() + game.getPlayerHeight()+90), this);
-		g.drawImage(game.getBodyImg(), viewOffset + game.getPlayerX(),
-				height - (game.getPlayerY() + game.getPlayerHeight()+40), this);
-		g.drawImage(game.getWheelImg(), viewOffset + game.getPlayerX(),
-				height - (game.getPlayerY() + game.getPlayerHeight()), this);
+		//Robot Render
+		g.drawImage(game.getRobot().getHeadImg(), viewOffset + game.getRobot().getX(),
+				height - (game.getRobot().getY() + game.getRobot().getHeight()+90), this);
+		g.drawImage(game.getRobot().getBodyImg(), viewOffset + game.getRobot().getX(),
+				height - (game.getRobot().getY() + game.getRobot().getHeight()+40), this);
+		g.drawImage(game.getRobot().getWheelImg(), viewOffset + game.getRobot().getX(),
+				height - (game.getRobot().getY() + game.getRobot().getHeight()), this);
 		
+		//RobotHead Render
 		BufferedImage robotHead = game.getRobotHead().getHeadImg();
-		
 		double locationX = robotHead.getWidth() / 2;
 		double locationY = robotHead.getHeight() / 2;
 		AffineTransform tx = AffineTransform.getRotateInstance(game.getRobotHead().getAngle(), locationX, locationY);
 		AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
-		
-		
 		g.drawImage(op.filter(robotHead, null), viewOffset + game.getRobotHead().getX(),
-				height - (game.getRobotHead().getY()+ game.getPlayerHeight()+90), this);
+				height - (game.getRobotHead().getY()+ game.getRobot().getHeight()+90), this);
+		
+		
+		//Monster Render
+		for (int i = 0;i<game.getMonsters().size();i++) {
+			Monster monster = game.getMonsters().get(i);
+			g.drawImage(monster.getImg(), monster.getX(),
+				height - (monster.getY() + game.getRobot().getHeight()+90), this);
+		}
 	}
 
 
@@ -84,9 +90,9 @@ public class Window extends JFrame implements Observer {
 		@Override
 		public void keyPressed(KeyEvent e) {
 			super.keyPressed(e);
-			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			if (e.getKeyCode() == KeyEvent.VK_X) {
 				game.jumpPressed();
-			} else if (e.getKeyCode() == KeyEvent.VK_CONTROL) {
+			} else if (e.getKeyCode() == KeyEvent.VK_Z) {
 				game.launchHeadPressed();
 			}
 		}

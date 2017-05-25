@@ -1,6 +1,8 @@
 package legPart;
 
-public interface Leg {
+import abstractFactory.Part;
+
+public interface Leg extends Part {
 	
-	void draw();
+	
 }

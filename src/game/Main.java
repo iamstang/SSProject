@@ -1,11 +1,13 @@
 package game;
 
+import entity.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-import entity.Player;
+import entity.Robot;
 
 public class Main {
 	public static void main(String[] args) {
@@ -13,8 +15,8 @@ public class Main {
 		w.setVisible(true);
 		w.start();
 	}
-	public static Player createPlayer() {
-		Player player = new Player(0,0);
+	public static Robot createPlayer() {
+		Robot player = new Robot(0,0);
 		try {
 			player.setHeadImg(ImageIO.read(new File("C:/Users/ood/Desktop/assets/head1.png")));
 			player.setBodyImg(ImageIO.read(new File("C:/Users/ood/Desktop/assets/body1.png")));

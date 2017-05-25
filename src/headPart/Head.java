@@ -1,6 +1,8 @@
 package headPart;
 
-public interface Head {
+import abstractFactory.Part;
 
-	 void draw();
+public interface Head extends Part {
+
+
 }

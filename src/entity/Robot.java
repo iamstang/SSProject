@@ -7,10 +7,8 @@ import javax.imageio.ImageIO;
 
 import state.*;
 
-public class Player {
-
-	public static final int JUMP_SPEED = 10;
-	public static final int WIDTH = 30;
+public class Robot {
+	public static final int WIDTH = 50;
 	public static final int NORMAL_HEIGHT = 140;
 
 	private int x;
@@ -27,7 +25,7 @@ public class Player {
 	public BufferedImage wheelImg = null;
 	
 	
-	public Player(int x, int y) {
+	public Robot(int x, int y) {
 		this.x = x;
 		this.y = y;
 		this.width = WIDTH;
@@ -126,6 +124,4 @@ public class Player {
 	public BufferedImage getWheelImg() {
 		return state.getWheelImg();
 	}
-
-
 }

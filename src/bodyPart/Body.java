@@ -1,6 +1,8 @@
 package bodyPart;
 
-public interface Body {
+import abstractFactory.Part;
+
+public interface Body extends Part {
 	
-	void draw();
+	
 }

@@ -18,8 +18,6 @@ public class Robot {
 	}
 	
 	public void print(){
-		head.draw();
-		body.draw();
-		leg.draw();
+		
 	}
 }
