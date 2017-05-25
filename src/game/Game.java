@@ -20,6 +20,8 @@ public class Game extends Observable {
 	private ArrayList<Monster> monsters;
 	private HashMap<Integer, String> wormImg;
 	private HashMap<Integer, String> birdImg;
+	private Background ground;
+	private Background background;
 
 	public Game(Robot robot) {
 		this.robot = robot;
@@ -29,6 +31,14 @@ public class Game extends Observable {
 		fetchImg();
 		this.monsters = createMonsterPool();
 		this.score = 0;
+		
+		try {
+			this.ground = new Background(ImageIO.read(new File("C:/Users/ood/Desktop/assets/bg-ground.png")), 10);
+			this.background = new Background(ImageIO.read(new File("C:/Users/ood/Desktop/assets/bg.png")), 2);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void start() {
@@ -53,6 +63,8 @@ public class Game extends Observable {
 	private void singleFrame() {
 		robot.update();
 		robotHead.update();
+		ground.update();
+		background.update();
 		for (int i = 0; i < monsters.size(); i++) {
 			score+=monsters.get(i).update(robotHead, robot);
 		}
@@ -103,5 +115,11 @@ public class Game extends Observable {
 
 	public ArrayList<Monster> getMonsters() {
 		return this.monsters;
+	}
+	public Background getGround() {
+		return this.ground;
+	}
+	public Background getBackground() {
+		return this.background;
 	}
 }

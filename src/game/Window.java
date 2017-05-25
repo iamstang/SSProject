@@ -45,9 +45,9 @@ public class Window extends JFrame implements Observer {
 				super.paint(g);
 				g.setColor(Color.white);
 				g.fillRect(0, 0, width, height);
+				drawGround(g);
 				drawCharacters(g);
 			}
-
 		};
 		add(drawPanel);
 
@@ -79,14 +79,20 @@ public class Window extends JFrame implements Observer {
 				height - (monster.getY() + game.getRobot().getHeight()+90), this);
 		}
 	}
-
-
+	
+	private void drawGround(Graphics g) {
+		g.drawImage(game.getBackground().getImg(), game.getBackground().getX(),
+				0, this);
+		g.drawImage(game.getGround().getImg(), game.getGround().getX(),
+				100, this);
+		
+	}
+	
 	public void start() {
 		game.start();
 	}
 
 	class Controller extends KeyAdapter {
-
 		@Override
 		public void keyPressed(KeyEvent e) {
 			super.keyPressed(e);
