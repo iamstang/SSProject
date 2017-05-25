@@ -232,11 +232,11 @@ public class ChooseCharacterWindow {
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(ChooseCharacterWindow.class.getResource("/assets/customize.gif")));
-		lblNewLabel_1.setFont(new Font("Roboto", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(16, 7, 207, 40);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel title = new JLabel("");
+		title.setIcon(new ImageIcon(ChooseCharacterWindow.class.getResource("/assets/customize.gif")));
+		title.setFont(new Font("Roboto", Font.PLAIN, 20));
+		title.setBounds(16, 7, 207, 40);
+		frame.getContentPane().add(title);
 		
 		
 		controller = new ChooseCharacterController(this);
