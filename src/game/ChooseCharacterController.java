@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 import abstractFactory.FactoryProducer;
 import abstractFactory.Part;
@@ -16,7 +17,6 @@ import legPart.Leg;
 public class ChooseCharacterController {
 
 	ChooseCharacterWindow window;
-
 
 	Leg[] legArr = new Leg [2];
 	Head[] headArr = new Head[4];
@@ -38,6 +38,7 @@ public class ChooseCharacterController {
 	}
 
 	public void init(){
+		
 		legArr[0] = legFactory.getLeg(1);
 		legArr[1] = legFactory.getLeg(2);
 		
@@ -53,81 +54,68 @@ public class ChooseCharacterController {
 		headArr[2] = headFactory.getHead(3);
 		headArr[3] = headFactory.getHead(4);
 
-
-		window.headLabel.setIcon(new ImageIcon(headArr[0].getImage()));
-				window.bodyLabel.setIcon(new ImageIcon(bodyArr[0].getImage()));
-			window.legLabel.setIcon(new ImageIcon(legArr[0].getImage()));
-
 		headIterator = new NormalIterator(headArr);
 		bodyIterator = new NormalIterator(bodyArr);
 		legIterator = new NormalIterator(legArr);
-
-
-
+		
+		window.headLabel.setIcon(new ImageIcon(headArr[0].getImage()));
+		window.bodyLabel.setIcon(new ImageIcon(bodyArr[0].getImage()));
+		window.legLabel.setIcon(new ImageIcon(legArr[0].getImage()));
 	}
-
-	public void nextHead(){
-
-		if ( headIterator.hasNext() ){
-			Part a = headIterator.next();
-			window.headLabel.setIcon(new ImageIcon(a.getImage()));
-			window.headNameLabel.setText(a.getName());
+	
+	public void next(int a){
+		NormalIterator b;
+		JLabel label , nameLabel;
+		
+		if ( a == 1 ){
+			
+			b = headIterator;
+			label = window.headLabel;
+			nameLabel = window.headNameLabel;		
+		} else if ( a == 2 ) {
+	
+			b = bodyIterator;
+			label = window.bodyLabel;
+			nameLabel = window.bodyNameLabel;			
+		} else {
+			
+			b = legIterator;
+			label = window.legLabel;
+			nameLabel = window.legNameLabel;
 		}
-
-
-	}
-
-	public void prevHead(){
-
-		if ( headIterator.hasPrev() ){
-			Part a = headIterator.prev();
-			window.headLabel.setIcon(new ImageIcon(a.getImage()));
-			window.headNameLabel.setText(a.getName());
+		
+		if ( b.hasNext() ){
+			Part part = b.next();
+			label.setIcon(new ImageIcon(part.getImage()));
+			nameLabel.setText(part.getName());
 		}
-
-
-
 	}
-
-	public void nextBody(){
-
-		if ( bodyIterator.hasNext() ){
-			Part a = bodyIterator.next();
-			window.bodyLabel.setIcon(new ImageIcon(a.getImage()));
-			window.bodyNameLabel.setText(a.getName());
+	
+	public void previous(int a){
+		NormalIterator b;
+		JLabel label , nameLabel;
+		
+		if ( a == 1 ){
+			
+			b = headIterator;
+			label = window.headLabel;
+			nameLabel = window.headNameLabel;	
+		} else if ( a == 2 ) {
+			
+			b = bodyIterator;
+			label = window.bodyLabel;
+			nameLabel = window.bodyNameLabel;	
+		} else {
+			
+			b = legIterator;
+			label = window.legLabel;
+			nameLabel = window.legNameLabel;
 		}
-
-	}
-
-	public void prevBody(){
-
-		if ( bodyIterator.hasPrev() ){
-			Part a = bodyIterator.prev();
-			window.bodyLabel.setIcon(new ImageIcon(a.getImage()));
-			window.bodyNameLabel.setText(a.getName());
+		
+		if ( b.hasPrev() ){
+			Part part = b.prev();
+			label.setIcon(new ImageIcon(part.getImage()));
+			nameLabel.setText(part.getName());
 		}
-
 	}
-
-	public void nextLeg(){
-
-		if ( legIterator.hasNext() ){
-			Part a = legIterator.next();
-			window.legLabel.setIcon(new ImageIcon(a.getImage()));
-			window.legNameLabel.setText(a.getName());
-		}
-
-
-	}
-
-	public void prevLeg(){
-
-		if ( legIterator.hasPrev() ){
-			Part a = legIterator.prev();
-			window.legLabel.setIcon(new ImageIcon(a.getImage()));
-			window.legNameLabel.setText(a.getName());
-		}
-
-	}
-
 }

@@ -16,8 +16,4 @@ public class Robot {
 		leg = g;
 		
 	}
-	
-	public void print(){
-		
-	}
 }

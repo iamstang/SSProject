@@ -11,12 +11,8 @@ public class Head4 implements Head {
 	BufferedImage img;
 	public Head4(){
 		try{
-			
 			img = ImageIO.read(new File("src/assets/head4.png"));
-			
-		} catch (Exception e){	
-			System.out.println("ss");
-		}
+		} catch (Exception e){ }
 	}
 		
 	public String getName(){

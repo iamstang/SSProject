@@ -12,9 +12,7 @@ public class Leg2 implements Leg {
 	public Leg2(){
 		try{
 			img = ImageIO.read(new File("src/assets/wheel2.png"));
-		} catch (Exception e){
-			
-		}
+		} catch (Exception e){ }
 	}
 	
 	public String getName(){

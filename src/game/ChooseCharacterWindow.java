@@ -111,7 +111,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				controller.prevHead();
+				controller.previous(1);
 			}
 			
 		});
@@ -128,7 +128,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				controller.nextHead();
+				controller.next(1);
 			}
 			
 		});
@@ -145,7 +145,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				controller.prevBody();
+				controller.previous(2);
 			}
 			
 		});
@@ -162,7 +162,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				controller.nextBody();
+				controller.next(2);
 			}
 			
 		});
@@ -179,7 +179,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				controller.prevLeg();
+				controller.previous(3);
 			}
 			
 		});
@@ -196,7 +196,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				controller.nextLeg();
+				controller.next(3);
 			}
 			
 		});

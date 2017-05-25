@@ -12,9 +12,7 @@ public class Head2 implements Head {
 	public Head2(){
 		try{
 			img = ImageIO.read(new File("src/assets/head2.png"));
-		} catch (Exception e){
-			
-		}
+		} catch (Exception e){ }
 	}
 
 	public String getName(){

@@ -11,14 +11,9 @@ public class Body5 implements Body {
 	BufferedImage img;
 	public Body5(){
 		try{
-			
 			img = ImageIO.read(new File("src/assets/body5.png"));
-			
-		} catch (Exception e){	
-			System.out.println("ss");
-		}
+		} catch (Exception e){ }
 	}
-	
 	
 	public String getName(){
 		return name;

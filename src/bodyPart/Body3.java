@@ -11,15 +11,10 @@ public class Body3 implements Body {
 	BufferedImage img;
 	public Body3(){
 		try{
-			
 			img = ImageIO.read(new File("src/assets/body3.png"));
-			
-		} catch (Exception e){	
-			System.out.println("ss");
-		}
+		} catch (Exception e){ }
 	}
-	
-	
+		
 	public String getName(){
 		return name;
 	}

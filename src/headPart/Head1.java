@@ -11,23 +11,19 @@ public class Head1 implements Head {
 	BufferedImage img;
 	public Head1(){
 		try{
-			
 			img = ImageIO.read(new File("src/assets/head1.png"));
-			
-		} catch (Exception e){	
-			System.out.println("ss");
-		}
+		} catch (Exception e){ }
 	}
-		
+
 	public String getName(){
 		return name;
 	}
-	
+
 	@Override
 	public BufferedImage getImage() {
 		// TODO Auto-generated method stub
 		return img;
 	}
-	
-	
+
+
 }
