@@ -1,6 +1,8 @@
 package game;
 
 import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,7 +21,7 @@ import java.awt.Color;
 public class ChooseCharacterWindow {
 
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField txtInsertName;
 	ChooseCharacterController controller;
 	
 	JLabel bodyNameLabel;
@@ -222,15 +224,22 @@ public class ChooseCharacterWindow {
 		legNameLabel.setBounds(136, 193, 77, 20);
 		frame.getContentPane().add(legNameLabel);
 		
-		textField = new JTextField();
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setBackground(new Color(42, 42, 42));
-		textField.setFont(new Font("Humanoid", Font.PLAIN, 16));
-		textField.setForeground(Color.WHITE);
-		textField.setToolTipText("");
-		textField.setBounds(6, 53, 228, 28);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		txtInsertName = new JTextField();
+		txtInsertName.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+                txtInsertName.setText("");
+            }
+        });
+		txtInsertName.setText("insert name...");
+		txtInsertName.setHorizontalAlignment(SwingConstants.CENTER);
+		txtInsertName.setBackground(new Color(42, 42, 42));
+		txtInsertName.setFont(new Font("Humanoid", Font.PLAIN, 16));
+		txtInsertName.setForeground(Color.WHITE);
+		txtInsertName.setToolTipText("");
+		txtInsertName.setBounds(6, 53, 228, 28);
+		frame.getContentPane().add(txtInsertName);
+		txtInsertName.setColumns(10);
 		
 		JLabel title = new JLabel("");
 		title.setIcon(new ImageIcon(ChooseCharacterWindow.class.getResource("/assets/customize.gif")));
