@@ -20,17 +20,11 @@ public class Instruction {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Instruction window = new Instruction();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public void runInstruction() {
+
+
+					frame.setVisible(true);
+			
 	}
 
 	/**

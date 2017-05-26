@@ -1,18 +1,9 @@
-<<<<<<< HEAD
 /abstractFactory/
 /assets/
-=======
-/assets/
-/monster/
-/abstractFactory/
->>>>>>> c324ebc34749f9e79fa2d7dcf99bf61b2b560c63
 /bodyPart/
 /entity/
 /game/
 /headPart/
 /legPart/
-<<<<<<< HEAD
 /monster/
-=======
->>>>>>> c324ebc34749f9e79fa2d7dcf99bf61b2b560c63
 /state/

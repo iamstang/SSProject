@@ -25,24 +25,16 @@ public class WelcomePage {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					WelcomePage window = new WelcomePage();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the application.
 	 */
 	public WelcomePage() {
+		
 		initialize();
+		frame.setVisible(true);
+	
 	}
 
 	/**
@@ -85,7 +77,7 @@ public class WelcomePage {
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ChooseCharacterWindow startGame = new ChooseCharacterWindow();
-				startGame.main(null);
+				startGame.runCustomize();
 				frame.dispose();
 				
 			}
@@ -102,7 +94,7 @@ public class WelcomePage {
 		btnIns.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Instruction ins = new Instruction();
-				ins.main(null);
+				ins.runInstruction();
 			}
 		});
 		btnIns.setBounds(19, 170, 195, 47);

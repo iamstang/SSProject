@@ -22,16 +22,10 @@ public class GameOver {
 	 * Launch the application.
 	 */
 	public void runGameOver() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+	
 					frame.setVisible(true);
 					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+			
 	}
 
 	/**
@@ -63,7 +57,7 @@ public class GameOver {
 		btnPlayAgain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ChooseCharacterWindow window = new ChooseCharacterWindow();
-				window.main(null);
+				window.runCustomize();
 				frame.dispose();
 				
 			}
