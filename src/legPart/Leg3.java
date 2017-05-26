@@ -1,27 +1,26 @@
-package headPart;
+package legPart;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
 
-public class Head4 implements Head {
+public class Leg3 implements Leg {
 
-	String name = "head4";
+	String name = "leg3";
 	BufferedImage img;
-	public Head4(){
+	public Leg3(){
 		try{
+			img = ImageIO.read(new File("src/assets/wheel3.png"));
+		} catch (Exception e){
 			
-			img = ImageIO.read(new File("src/assets/head4.png"));
-			
-		} catch (Exception e){	
 		}
 	}
-		
+	
 	public String getName(){
 		return name;
 	}
-	
+
 	@Override
 	public BufferedImage getImage() {
 		// TODO Auto-generated method stub

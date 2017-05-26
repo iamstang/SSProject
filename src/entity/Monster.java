@@ -72,6 +72,10 @@ public class Monster {
 		}
 		return false;
 	}
+	public void prerespawn() {
+		this.y = 0;
+		this.x = 1180;
+	}
 	public void respawn() {
 		this.y = 0;
 		this.vX = (int)(Math.random()*10)+1;

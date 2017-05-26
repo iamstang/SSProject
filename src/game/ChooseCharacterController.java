@@ -23,9 +23,9 @@ public class ChooseCharacterController {
 	ChooseCharacterWindow window;
 
 
-	Leg[] legArr = new Leg [2];
-	Head[] headArr = new Head[4];
-	Body[] bodyArr = new Body[6];
+	Leg[] legArr = new Leg [3];
+	Head[] headArr = new Head[6];
+	Body[] bodyArr = new Body[7];
 
 	NormalIterator headIterator;
 	NormalIterator bodyIterator;
@@ -45,6 +45,7 @@ public class ChooseCharacterController {
 	public void init(){
 		legArr[0] = legFactory.getLeg(1);
 		legArr[1] = legFactory.getLeg(2);
+		legArr[2] = legFactory.getLeg(3);
 
 
 		bodyArr[0] = bodyFactory.getBody(1);
@@ -53,11 +54,14 @@ public class ChooseCharacterController {
 		bodyArr[3] = bodyFactory.getBody(4);
 		bodyArr[4] = bodyFactory.getBody(5);
 		bodyArr[5] = bodyFactory.getBody(6);
+		bodyArr[6] = bodyFactory.getBody(7);
 
 		headArr[0] = headFactory.getHead(1);
 		headArr[1] = headFactory.getHead(2);
 		headArr[2] = headFactory.getHead(3);
 		headArr[3] = headFactory.getHead(4);
+		headArr[4] = headFactory.getHead(5);
+		headArr[5] = headFactory.getHead(6);
 
 
 		window.headLabel.setIcon(new ImageIcon(headArr[0].getImage()));

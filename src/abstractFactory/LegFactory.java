@@ -5,6 +5,7 @@ import headPart.Head;
 import legPart.Leg;
 import legPart.Leg1;
 import legPart.Leg2;
+import legPart.Leg3;
 
 
 public class LegFactory extends PartFactory {
@@ -30,6 +31,7 @@ public class LegFactory extends PartFactory {
 		if ( i == 0 ) return null;
 		else if ( i == 1 ) return new Leg1();
 		else if ( i == 2 ) return new Leg2();
+		else if ( i == 3 ) return new Leg3();
 		return null;
 	}
 

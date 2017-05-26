@@ -72,9 +72,13 @@ public class Game extends Observable {
 		background.update();
 		ground.update();
 		for (int i = 0; i < monsters.size(); i++) {
-			if (!monsters.get(i).isAlive() && Math.random()*100000000 < 2 )
+			if (!monsters.get(i).isAlive() && Math.random()*700 < 2 )
 				score+=monsters.get(i).update(robotHead);
-			score+=monsters.get(i).update(robotHead);
+			else if (monsters.get(i).isAlive())
+				score+=monsters.get(i).update(robotHead);
+			else {
+				monsters.get(i).prerespawn();
+			}
 			if(monsters.get(i).isHit(robot)) {
 				//GAME OVER
 				gameover++;
@@ -93,11 +97,11 @@ public class Game extends Observable {
 				if(i == 3){
 					ImageIcon worm = new ImageIcon(Window.class.getResource(wormImg.get(i)));
 					ImageIcon bird = new ImageIcon(Window.class.getResource(birdImg.get(i)));
-					monsters.add(new SkyWorm(2000, (int)(Math.random()*250), (int)(Math.random()*10)+1, worm.getImage(), rainbowWormScore));
-					monsters.add(new LandBird(1000, -30, (int)(Math.random()*10)+1, bird.getImage(), rainbowBirdScore));
+					monsters.add(new SkyWorm(2000, (int)(Math.random()*250), (int)(Math.random()*11)+8, worm.getImage(), rainbowWormScore));
+					monsters.add(new LandBird(1500, -30, (int)(Math.random()*7)+7, bird.getImage(), rainbowBirdScore));
 				}else {
-					monsters.add(new SkyWorm(2000, (int)(Math.random()*250), (int)(Math.random()*10)+5, ImageIO.read(new File(wormImg.get(i))),wormScore));
-					monsters.add(new LandBird(1000, -30, (int)(Math.random()*5)+3, ImageIO.read(new File(birdImg.get(i))), birdScore));
+					monsters.add(new SkyWorm(2000, (int)(Math.random()*250), (int)(Math.random()*11)+6, ImageIO.read(new File(wormImg.get(i))),wormScore));
+					monsters.add(new LandBird(1500, -30, (int)(Math.random()*7)+4, ImageIO.read(new File(birdImg.get(i))), birdScore));
 				}
 			} catch (IOException e) {
 				e.printStackTrace();

@@ -5,14 +5,14 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
-public class Head4 implements Head {
+public class Head6 implements Head {
 
-	String name = "head4";
+	String name = "head6";
 	BufferedImage img;
-	public Head4(){
+	public Head6(){
 		try{
 			
-			img = ImageIO.read(new File("src/assets/head4.png"));
+			img = ImageIO.read(new File("src/assets/head6.png"));
 			
 		} catch (Exception e){	
 		}

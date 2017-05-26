@@ -7,6 +7,7 @@ import bodyPart.Body3;
 import bodyPart.Body4;
 import bodyPart.Body5;
 import bodyPart.Body6;
+import bodyPart.Body7;
 import headPart.Head;
 import legPart.Leg;
 
@@ -29,6 +30,7 @@ public class BodyFactory extends PartFactory {
 		else if ( i == 4 ) return new Body4();
 		else if ( i == 5 ) return new Body5();
 		else if ( i == 6 ) return new Body6();
+		else if ( i == 7 ) return new Body7();
 		return null;
 	}
 

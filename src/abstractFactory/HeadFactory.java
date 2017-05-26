@@ -6,6 +6,8 @@ import headPart.Head1;
 import headPart.Head2;
 import headPart.Head3;
 import headPart.Head4;
+import headPart.Head5;
+import headPart.Head6;
 import legPart.Leg;
 
 public class HeadFactory extends PartFactory {
@@ -19,6 +21,8 @@ public class HeadFactory extends PartFactory {
 		else if ( i == 2 ) return new Head2();
 		else if ( i == 3 ) return new Head3();
 		else if ( i == 4 ) return new Head4();
+		else if ( i == 5 ) return new Head5();
+		else if ( i == 6 ) return new Head6();
 		return null;
 	}
 

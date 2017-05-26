@@ -78,8 +78,14 @@ public class ChooseCharacterWindow {
 		JButton btnGo = new JButton("");
 		btnGo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.go();
-				frame.dispose();
+				if(txtInsertName.getText().equals("insert name...") || txtInsertName.getText().equals("") || txtInsertName.getText().length() >= 10 || txtInsertName.getText().equals("Error!!")
+						|| txtInsertName.getText().equalsIgnoreCase("jittat") || txtInsertName.getText().equalsIgnoreCase("stang")){
+						txtInsertName.setText("Error!!");
+				}else{
+					controller.go();
+					frame.dispose();
+				}
+			
 			}
 		});
 		btnGo.setBounds(6, 230, 228, 47);
@@ -239,7 +245,7 @@ public class ChooseCharacterWindow {
 		txtInsertName.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e){
-            	if(txtInsertName.getText().equals("insert name..."))
+            	if(txtInsertName.getText().equals("insert name...") || txtInsertName.getText().equals("Error!!"))
                 txtInsertName.setText("");
             }
         });

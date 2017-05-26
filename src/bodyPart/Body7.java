@@ -1,32 +1,33 @@
-package headPart;
+package bodyPart;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
 
-public class Head4 implements Head {
+public class Body7 implements Body {
 
-	String name = "head4";
+	String name = "body7";
 	BufferedImage img;
-	public Head4(){
+	public Body7(){
 		try{
 			
-			img = ImageIO.read(new File("src/assets/head4.png"));
+			img = ImageIO.read(new File("src/assets/body7.png"));
 			
 		} catch (Exception e){	
+		
 		}
 	}
-		
-	public String getName(){
-		return name;
-	}
-	
 	@Override
 	public BufferedImage getImage() {
 		// TODO Auto-generated method stub
 		return img;
 	}
-	
-	
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+
 }
