@@ -39,8 +39,8 @@ public class Game extends Observable {
 		this.gameover = 0;
 		
 		try {
-			this.background = new Background(ImageIO.read(new File("bin/assets/cloud.png")), 1);
-			this.ground = new Background(ImageIO.read(new File("bin/assets/bg.png")), 3);
+			this.background = new Background(ImageIO.read(getClass().getResource("/assets/cloud.png")), 1);
+			this.ground = new Background(ImageIO.read(getClass().getResource("/assets/bg.png")), 3);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -100,8 +100,8 @@ public class Game extends Observable {
 					monsters.add(new SkyWorm(2000, (int)(Math.random()*250), (int)(Math.random()*11)+8, worm.getImage(), rainbowWormScore));
 					monsters.add(new LandBird(1500, -30, (int)(Math.random()*7)+7, bird.getImage(), rainbowBirdScore));
 				}else {
-					monsters.add(new SkyWorm(2000, (int)(Math.random()*250), (int)(Math.random()*11)+6, ImageIO.read(new File(wormImg.get(i))),wormScore));
-					monsters.add(new LandBird(1500, -30, (int)(Math.random()*7)+4, ImageIO.read(new File(birdImg.get(i))), birdScore));
+					monsters.add(new SkyWorm(2000, (int)(Math.random()*250), (int)(Math.random()*11)+6, ImageIO.read(getClass().getResource(wormImg.get(i))),wormScore));
+					monsters.add(new LandBird(1500, -30, (int)(Math.random()*7)+4, ImageIO.read(getClass().getResource(birdImg.get(i))), birdScore));
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -111,13 +111,13 @@ public class Game extends Observable {
 	}
 
 	public void fetchImg() {
-		wormImg.put(0, "bin/monster/monster-walk-red.png");
-		wormImg.put(1, "bin/monster/monster-walk-yellow.png");
-		wormImg.put(2, "bin/monster/monster-walk-green.png");
+		wormImg.put(0, "/monster/monster-walk-red.png");
+		wormImg.put(1, "/monster/monster-walk-yellow.png");
+		wormImg.put(2, "/monster/monster-walk-green.png");
 		wormImg.put(3, "/monster/monster-walk-rainbow.gif");
-		birdImg.put(0, "bin/monster/monster-fly-red.png");
-		birdImg.put(1, "bin/monster/monster-fly-yellow.png");
-		birdImg.put(2, "bin/monster/monster-fly-green.png");
+		birdImg.put(0, "/monster/monster-fly-red.png");
+		birdImg.put(1, "/monster/monster-fly-yellow.png");
+		birdImg.put(2, "/monster/monster-fly-green.png");
 		birdImg.put(3, "/monster/monster-fly-rainbow.gif");
 	}
 

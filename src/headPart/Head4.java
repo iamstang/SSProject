@@ -12,7 +12,7 @@ public class Head4 implements Head {
 	public Head4(){
 		try{
 			
-			img = ImageIO.read(new File("src/assets/head4.png"));
+			img = ImageIO.read(getClass().getResource("/assets/head4.png"));
 			
 		} catch (Exception e){	
 		}

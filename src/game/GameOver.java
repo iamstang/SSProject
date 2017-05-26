@@ -48,7 +48,7 @@ public class GameOver {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnPlayAgain = new JButton("");
-		btnPlayAgain.setIcon(new ImageIcon(GameOver.class.getResource("/assets/again.gif")));
+		btnPlayAgain.setIcon(new ImageIcon(getClass().getResource("/assets/again.gif")));
 		btnPlayAgain.setHorizontalAlignment(SwingConstants.CENTER);
 		btnPlayAgain.setBounds(6, 138, 228, 48);
 		btnPlayAgain.setOpaque(false);
@@ -66,7 +66,7 @@ public class GameOver {
 		frame.getContentPane().add(btnPlayAgain);
 		
 		JButton btnExit = new JButton("");
-		btnExit.setIcon(new ImageIcon(GameOver.class.getResource("/assets/exit.gif")));
+		btnExit.setIcon(new ImageIcon(getClass().getResource("/assets/exit.gif")));
 		btnExit.setHorizontalAlignment(SwingConstants.CENTER);
 		btnExit.setBounds(6, 197, 228, 48);
 		btnExit.setOpaque(false);

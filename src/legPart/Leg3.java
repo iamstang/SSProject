@@ -11,7 +11,7 @@ public class Leg3 implements Leg {
 	BufferedImage img;
 	public Leg3(){
 		try{
-			img = ImageIO.read(new File("src/assets/wheel3.png"));
+			img = ImageIO.read(getClass().getResource("/assets/wheel3.png"));
 		} catch (Exception e){
 			
 		}

@@ -11,7 +11,7 @@ public class Head2 implements Head {
 	BufferedImage img;
 	public Head2(){
 		try{
-			img = ImageIO.read(new File("src/assets/head2.png"));
+			img = ImageIO.read(getClass().getResource("/assets/head2.png"));
 		} catch (Exception e){
 			
 		}

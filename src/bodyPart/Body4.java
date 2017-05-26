@@ -12,7 +12,7 @@ public class Body4 implements Body {
 	public Body4(){
 		try{
 			
-			img = ImageIO.read(new File("src/assets/body4.png"));
+			img = ImageIO.read(getClass().getResource("/assets/body4.png"));
 			
 		} catch (Exception e){	
 			System.out.println("ss");

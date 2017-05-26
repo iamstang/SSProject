@@ -48,7 +48,7 @@ public class Instruction {
  		frame.getContentPane().setLayout(null);
  		 try {
 	    
-	            BufferedImage img = ImageIO.read(new File("src/assets/bg-instruction.png"));
+	            BufferedImage img = ImageIO.read(getClass().getResource("/assets/bg-instruction.png"));
 	            frame.setContentPane(new JLabel(new ImageIcon(img)));
 	           
 	   
