@@ -46,6 +46,8 @@ public class GameOver {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(42, 42, 42));
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
+	 	frame.setUndecorated(true);
 		
 		JButton btnPlayAgain = new JButton("");
 		btnPlayAgain.setIcon(new ImageIcon(getClass().getResource("/assets/again.gif")));
@@ -56,9 +58,9 @@ public class GameOver {
 		btnPlayAgain.setBorderPainted(false);
 		btnPlayAgain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ChooseCharacterWindow window = new ChooseCharacterWindow();
-				window.runCustomize();
+
 				frame.dispose();
+				
 				
 			}
 		});

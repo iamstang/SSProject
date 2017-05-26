@@ -36,10 +36,14 @@ public class Window extends JFrame implements Observer {
 		initComponents();
 		addKeyListener(new Controller());
 		game = new Game(robot);
+		
 		game.addObserver(this);
 		pack();
 	}
 	private void initComponents() {
+		
+		this.setResizable(false);
+	 	this.setUndecorated(true);
 		drawPanel = new JPanel() {
 			{
 				setPreferredSize(new Dimension(width, height));

@@ -55,6 +55,8 @@ public class ChooseCharacterWindow {
 		initialize();
 
 	}
+	
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -68,7 +70,7 @@ public class ChooseCharacterWindow {
 		frame.setBounds(100, 100, 240, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
+		frame.setResizable(false);
 		JButton btnGo = new JButton("");
 		btnGo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -77,7 +79,8 @@ public class ChooseCharacterWindow {
 					txtInsertName.setText("Error!!");
 				}else{
 					controller.go();
-					frame.dispose();
+					
+					
 				}
 
 			}
