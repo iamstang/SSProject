@@ -10,12 +10,12 @@ public class StateRun implements State {
 	}
 	@Override
 	public void jump() {
-		player.setvY(20);
+		player.setvY(18);
 		player.setState(new StateJump(player));
 	}
 	@Override
 	public void launchHead() {
-		player.setHeadlessTime(80);
+		player.setHeadlessTime(100);
 		player.setState(new StateHeadless(player));
 	}
 	@Override

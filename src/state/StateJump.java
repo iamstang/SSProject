@@ -15,7 +15,7 @@ public class StateJump implements State{
 	}
 	@Override
 	public void launchHead() {
-		player.setHeadlessTime(80);
+		player.setHeadlessTime(100);
 		player.setState(new StateHeadless(player));
 	}
 	@Override

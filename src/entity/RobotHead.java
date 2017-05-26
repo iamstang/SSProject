@@ -2,6 +2,8 @@ package entity;
 
 import java.awt.image.BufferedImage;
 
+import state.StateHeadless;
+
 public class RobotHead {
 	private int x;
 	private int y;
@@ -14,7 +16,7 @@ public class RobotHead {
 		this.headImg = robot.getHeadImg();
 		this.x = robot.getX();
 		this.y = robot.getY();
-		this.vX = 20;
+		this.vX = 15;
 		this.angle = 0;
 	}
 	public int getX() {
@@ -41,14 +43,18 @@ public class RobotHead {
 	public double getAngle() {
 		return this.angle;
 	}
+	public void resetHead() {
+		this.robot.setHeadlessTime(0);
+		this.angle = 0;
+		this.y = robot.getY();
+		this.x = robot.getX();
+	}
 	public void update() {
 		if (robot.getHeadlessTime()>0) {
 			this.x+=vX;
 			angle += Math.toRadians (20);
 		} else {
-			angle = 0;
-			this.y = robot.getY();
-			this.x = robot.getX();
-		}	
+			resetHead();
+		}
 	}
 }

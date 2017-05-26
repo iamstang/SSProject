@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Observable;
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+
 import entity.*;
+import state.StateHeadless;
 
 public class Game extends Observable {
 
@@ -33,8 +36,8 @@ public class Game extends Observable {
 		this.score = 0;
 		
 		try {
-			this.ground = new Background(ImageIO.read(new File("bin/assets/bg.png")), 10);
 			this.background = new Background(ImageIO.read(new File("bin/assets/cloud.png")), 2);
+			this.ground = new Background(ImageIO.read(new File("bin/assets/bg.png")), 5);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,12 +66,15 @@ public class Game extends Observable {
 	private void singleFrame() {
 		robot.update();
 		robotHead.update();
-		ground.update();
 		background.update();
+		ground.update();
 		for (int i = 0; i < monsters.size(); i++) {
-			score+=monsters.get(i).update(robotHead, robot);
+			score+=monsters.get(i).update(robotHead);
+			if(monsters.get(i).isHit(robot)) {
+				//GAME OVER
+			}
 		}
-
+		
 		setChanged();
 		notifyObservers();
 	}
@@ -77,8 +83,8 @@ public class Game extends Observable {
 		ArrayList<Monster> monsters = new ArrayList<Monster>();
 		for (int i = 0; i < 4; i++) {
 			try {
-				monsters.add(new SkyWorm(800, (int)(Math.random()*250), (int)(Math.random()*18), ImageIO.read(new File(wormImg.get(i)))));
-				monsters.add(new LandBird(800, -30, (int)(Math.random()*10), ImageIO.read(new File(birdImg.get(i)))));
+				monsters.add(new SkyWorm(2000, (int)(Math.random()*250), (int)(Math.random()*10)+1, ImageIO.read(new File(wormImg.get(i)))));
+				monsters.add(new LandBird(1000, -30, (int)(Math.random()*10)+1, ImageIO.read(new File(birdImg.get(i)))));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -102,7 +108,10 @@ public class Game extends Observable {
 	}
 
 	public void launchHeadPressed() {
-		robot.launchHeadPressed();
+		if (robot.getCooldown() < 0) {
+			robot.launchHeadPressed();
+			robot.setCooldown(70);
+		}
 	}
 
 	public Robot getRobot() {
@@ -121,5 +130,8 @@ public class Game extends Observable {
 	}
 	public Background getBackground() {
 		return this.background;
+	}
+	public int getScore() {
+		return this.score;
 	}
 }

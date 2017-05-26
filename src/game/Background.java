@@ -13,7 +13,7 @@ public class Background {
 	}
 	public void update() {
 		x-=speed;
-		if (x < -1000) x=0;
+		if (x < -1080) x=0;
 		
 	}
 	public BufferedImage getImg() {

@@ -10,8 +10,8 @@ public class LandBird extends Monster{
 	@Override
 	public void respawn() {
 		super.y = -30;
-		super.vX = (int)(Math.random()*10);
-		super.x = 800;
+		super.vX = (int)(Math.random()*10)+1;
+		super.x = 1180;
 		super.active = true;
 	}
 

@@ -10,8 +10,8 @@ public class SkyWorm extends Monster{
 	@Override
 	public void respawn() {
 		super.y = (int)(Math.random()*250);
-		super.vX = (int)(Math.random()*18);
-		super.x = 800;
+		super.vX = (int)(Math.random()*10)+1;
+		super.x = 1180;
 		super.active = true;
 	}
 

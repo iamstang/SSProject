@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
@@ -18,7 +19,7 @@ import javax.swing.JPanel;
 import entity.Robot;
 
 public class Window extends JFrame implements Observer {
-	private int width = 640;
+	private int width = 1080;
 	private int height = 480;
 	private int viewOffset = 50;
 
@@ -33,7 +34,6 @@ public class Window extends JFrame implements Observer {
 		game.addObserver(this);
 		pack();
 	}
-
 	private void initComponents() {
 		drawPanel = new JPanel() {
 			{
@@ -47,6 +47,7 @@ public class Window extends JFrame implements Observer {
 				g.fillRect(0, 0, width, height);
 				drawGround(g);
 				drawCharacters(g);
+				drawScore(g);
 			}
 		};
 		add(drawPanel);
@@ -79,12 +80,14 @@ public class Window extends JFrame implements Observer {
 				height - (monster.getY() + game.getRobot().getHeight()+90), this);
 		}
 	}
-	
+	private void drawScore(Graphics g) {
+		g.drawString(game.getScore()+"", 100,100);
+	}
 	private void drawGround(Graphics g) {
-		g.drawImage(game.getBackground().getImg(), game.getBackground().getX(),
-				0, this);
 		g.drawImage(game.getGround().getImg(), game.getGround().getX(),
-				100, this);
+				0, this);
+		g.drawImage(game.getBackground().getImg(), game.getBackground().getX(),
+				-80, this);
 		
 	}
 	
