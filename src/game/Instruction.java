@@ -48,7 +48,7 @@ public class Instruction {
 		 frame = new JFrame();
 		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
      	frame.setResizable(false);
-     	frame.setUndecorated(true);
+   
 
  		frame.setBounds(100, 100, 640, 480);
  		frame.getContentPane().setLayout(null);

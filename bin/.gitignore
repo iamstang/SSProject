@@ -1,6 +1,9 @@
-/game/
+/abstractFactory/
 /assets/
-/assets.zip
+/bodyPart/
 /entity/
-/state/
+/game/
+/headPart/
+/legPart/
 /monster/
+/state/
