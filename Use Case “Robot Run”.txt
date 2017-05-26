@@ -1,0 +1,23 @@
+Use Case “Robot Run”
+ 
+1.   User presses the ‘start’ button and go into character customize window.
+2.   User inserts name and customizes a robot.
+3.   User presses ‘go’ button to start playing as the custom robot.
+4.   User presses ‘x’ to jump and press ‘z’ to launch the robot’s head forward.
+5.   User gains score points from shooting the monsters (There are different score points for each type of monsters).
+6.   User loses the game when the robot hits a monster and the scene goes to the end game scene where the user can choose to play the game again.
+
+
+ 
+
+
+
+
+Alternative Use Case
+ 
+1a. User presses ‘instruction’ button to see how to play the game.
+1b. User presses ‘exit’ button to quit the game.
+
+2a. User input invalid character name such as “Insert name...”(Initial text), “Error!!”(Error text), “Jittat”, “Stang”, “”(Empty String) or using the name that is longer than 10 characters. The name field then display “Error!!”
+
+6a. User choose exit to quit the game.
