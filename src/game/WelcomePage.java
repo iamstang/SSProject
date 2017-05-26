@@ -107,8 +107,6 @@ public class WelcomePage {
 		btnIns.setBounds(19, 170, 195, 47);
 		frame.getContentPane().add(btnIns);
 		
-<<<<<<< HEAD
-=======
 		JButton btnExit = new JButton("");
 		btnExit.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/exit.gif")));
 		btnExit.setOpaque(false);
@@ -122,7 +120,6 @@ public class WelcomePage {
 		btnExit.setBounds(19, 220, 195, 47);
 		frame.getContentPane().add(btnExit);
 		
->>>>>>> e69b7055fcf9db4a1b7a57f107df866f487f5d51
 		
 	}
 }
