@@ -11,7 +11,6 @@ public class Body4 implements Body {
 	BufferedImage img;
 	public Body4(){
 		try{
-<<<<<<< HEAD
 			
 			img = ImageIO.read(new File("src/assets/body4.png"));
 			
@@ -21,12 +20,6 @@ public class Body4 implements Body {
 	}
 	
 	
-=======
-			img = ImageIO.read(new File("src/assets/body4.png"));
-		} catch (Exception e){ }
-	}
-	
->>>>>>> e69b7055fcf9db4a1b7a57f107df866f487f5d51
 	public String getName(){
 		return name;
 	}
