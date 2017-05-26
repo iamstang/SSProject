@@ -10,7 +10,7 @@ public class StateHeadless implements State{
 	}
 	@Override
 	public void jump() {
-		player.setvY(20);
+		player.setvY(18);
 		player.setState(new StateHeadlessJump(player));
 	}
 	@Override

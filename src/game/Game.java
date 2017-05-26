@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Observable;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
 import entity.*;
+import state.StateHeadless;
 
 public class Game extends Observable {
 
@@ -16,6 +20,7 @@ public class Game extends Observable {
 	private Robot robot;
 	private RobotHead robotHead;
 	private boolean running;
+	private int gameover;
 	private Thread gameThread;
 	private ArrayList<Monster> monsters;
 	private HashMap<Integer, String> wormImg;
@@ -31,10 +36,11 @@ public class Game extends Observable {
 		fetchImg();
 		this.monsters = createMonsterPool();
 		this.score = 0;
+		this.gameover = 0;
 		
 		try {
-			this.ground = new Background(ImageIO.read(new File("bin/assets/bg.png")), 10);
-			this.background = new Background(ImageIO.read(new File("bin/assets/cloud.png")), 2);
+			this.background = new Background(ImageIO.read(new File("bin/assets/cloud.png")), 1);
+			this.ground = new Background(ImageIO.read(new File("bin/assets/bg.png")), 3);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,10 +69,16 @@ public class Game extends Observable {
 	private void singleFrame() {
 		robot.update();
 		robotHead.update();
-		ground.update();
 		background.update();
+		ground.update();
 		for (int i = 0; i < monsters.size(); i++) {
-			score+=monsters.get(i).update(robotHead, robot);
+			if (!monsters.get(i).isAlive() && Math.random()*100000000 < 2 )
+				score+=monsters.get(i).update(robotHead);
+			score+=monsters.get(i).update(robotHead);
+			if(monsters.get(i).isHit(robot)) {
+				//GAME OVER
+				gameover++;
+			}
 		}
 
 		setChanged();
@@ -74,11 +86,19 @@ public class Game extends Observable {
 	}
 
 	public ArrayList<Monster> createMonsterPool() {
+		int wormScore = 150, birdScore = 100, rainbowWormScore = 1500, rainbowBirdScore = 1000;
 		ArrayList<Monster> monsters = new ArrayList<Monster>();
 		for (int i = 0; i < 4; i++) {
 			try {
-				monsters.add(new SkyWorm(800, (int)(Math.random()*250), (int)(Math.random()*18), ImageIO.read(new File(wormImg.get(i)))));
-				monsters.add(new LandBird(800, -30, (int)(Math.random()*10), ImageIO.read(new File(birdImg.get(i)))));
+				if(i == 3){
+					ImageIcon worm = new ImageIcon(Window.class.getResource(wormImg.get(i)));
+					ImageIcon bird = new ImageIcon(Window.class.getResource(birdImg.get(i)));
+					monsters.add(new SkyWorm(2000, (int)(Math.random()*250), (int)(Math.random()*10)+1, worm.getImage(), rainbowWormScore));
+					monsters.add(new LandBird(1000, -30, (int)(Math.random()*10)+1, bird.getImage(), rainbowBirdScore));
+				}else {
+					monsters.add(new SkyWorm(2000, (int)(Math.random()*250), (int)(Math.random()*10)+5, ImageIO.read(new File(wormImg.get(i))),wormScore));
+					monsters.add(new LandBird(1000, -30, (int)(Math.random()*5)+3, ImageIO.read(new File(birdImg.get(i))), birdScore));
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -90,11 +110,11 @@ public class Game extends Observable {
 		wormImg.put(0, "bin/monster/monster-walk-red.png");
 		wormImg.put(1, "bin/monster/monster-walk-yellow.png");
 		wormImg.put(2, "bin/monster/monster-walk-green.png");
-		wormImg.put(3, "bin/monster/monster-walk-rainbow.png");
+		wormImg.put(3, "/monster/monster-walk-rainbow.gif");
 		birdImg.put(0, "bin/monster/monster-fly-red.png");
 		birdImg.put(1, "bin/monster/monster-fly-yellow.png");
 		birdImg.put(2, "bin/monster/monster-fly-green.png");
-		birdImg.put(3, "bin/monster/monster-fly-rainbow.png");
+		birdImg.put(3, "/monster/monster-fly-rainbow.gif");
 	}
 
 	public void jumpPressed() {
@@ -102,7 +122,10 @@ public class Game extends Observable {
 	}
 
 	public void launchHeadPressed() {
-		robot.launchHeadPressed();
+		if (robot.getCooldown() < 0) {
+			robot.launchHeadPressed();
+			robot.setCooldown(30);
+		}
 	}
 
 	public Robot getRobot() {
@@ -122,4 +145,11 @@ public class Game extends Observable {
 	public Background getBackground() {
 		return this.background;
 	}
+	public int getScore() {
+		return score;
+	}
+	public boolean isOver() {
+		return gameover>0;
+	}
+
 }

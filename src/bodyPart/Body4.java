@@ -19,7 +19,6 @@ public class Body4 implements Body {
 		}
 	}
 	
-	
 	public String getName(){
 		return name;
 	}

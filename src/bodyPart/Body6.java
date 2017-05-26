@@ -5,29 +5,29 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
-public class Body3 implements Body {
+public class Body6 implements Body {
 
-	String name = "body3";
+	String name = "body6";
 	BufferedImage img;
-	public Body3(){
+	public Body6(){
 		try{
 			
-			img = ImageIO.read(new File("src/assets/body3.png"));
+			img = ImageIO.read(new File("src/assets/body6.png"));
 			
 		} catch (Exception e){	
-			System.out.println("ss");
+		
 		}
 	}
-	
-	public String getName(){
-		return name;
-	}
-	
 	@Override
 	public BufferedImage getImage() {
 		// TODO Auto-generated method stub
 		return img;
 	}
-	
-	
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+
 }

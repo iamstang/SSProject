@@ -22,7 +22,7 @@ import java.awt.BorderLayout;
 public class ChooseCharacterWindow {
 
 	private JFrame frame;
-	private JTextField txtInsertName;
+	JTextField txtInsertName;
 	ChooseCharacterController controller;
 	
 	JLabel bodyNameLabel;
@@ -78,8 +78,8 @@ public class ChooseCharacterWindow {
 		JButton btnGo = new JButton("");
 		btnGo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main main = new Main();
-				main.main(null);
+				controller.go();
+				frame.dispose();
 			}
 		});
 		btnGo.setBounds(6, 230, 228, 47);
@@ -124,7 +124,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				controller.prevHead();
+				controller.prev(1);
 			}
 			
 		});
@@ -141,7 +141,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				controller.nextHead();
+				controller.next(1);
 			}
 			
 		});
@@ -158,7 +158,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				controller.prevBody();
+				controller.prev(2);
 			}
 			
 		});
@@ -175,7 +175,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				controller.nextBody();
+				controller.next(2);
 			}
 			
 		});
@@ -192,7 +192,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				controller.prevLeg();
+				controller.prev(3);
 			}
 			
 		});
@@ -209,7 +209,7 @@ public class ChooseCharacterWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				controller.nextLeg();
+				controller.next(3);
 			}
 			
 		});

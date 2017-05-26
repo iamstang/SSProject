@@ -1,19 +1,22 @@
 package entity;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 public class Monster {
 	protected int x;
 	protected int y;
 	protected int vX;
-	private BufferedImage img;
+	private Image img;
 	protected boolean active;
-	public Monster(int x, int y, int vX, BufferedImage img) {
+	protected int score;
+	public Monster(int x, int y, int vX, Image image, int score) {
 		this.x = x;
 		this.y = y;
 		this.vX = vX;
-		this.img = img;
+		this.img = image;
 		this.active = true;
+		this.score = score;
 	}
 	public int getX() {
 		return x;
@@ -39,38 +42,40 @@ public class Monster {
 	public boolean getActive() {
 		return this.active;
 	}
-	public BufferedImage getImg() {
+	public Image getImg() {
 		return this.img;
 	}
-	public int update(RobotHead robotHead, Robot robot) {
+	public int update(RobotHead robotHead) {
 		int updateScore = 0;
-		if (active) {
+		if (isAlive()) {
 			x-=vX;
 		} else {
 			respawn();
 		}
 		if (robotHead.getX() > x && robotHead.getY() < y+50 && robotHead.getY() > y-50) {
-			updateScore = 100;
+			updateScore = score;
+			robotHead.resetHead();
 			active = false;
 		}
-		if (x < -2000) {
+		if (x < -1500) {
 			active = false;
-		}
-		if (isHit(robot)) {
-			//Game over!
 		}
 		return updateScore;
 	}
+	public boolean isAlive() {
+		if (active) return true;
+		return false;
+	}
 	public boolean isHit(Robot robot) {
-		if (x == robot.getX() && robot.getY() < y+100 && robot.getY() > y-100) {
+		if (robot.getX() < x+20 && robot.getX() > x-50 && robot.getY() < y+50 && robot.getY() > y-50) {
 			return true;
 		}
 		return false;
 	}
 	public void respawn() {
-		this.y = (int)(Math.random()*250);
-		this.vX = (int)(Math.random()*18);
-		this.x = 800;
+		this.y = 0;
+		this.vX = (int)(Math.random()*10)+1;
+		this.x = 1180;
 		active = true;
 	}
 
