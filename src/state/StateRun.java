@@ -1,11 +1,11 @@
 package state;
 import java.awt.image.BufferedImage;
 
-import entity.Player;
+import entity.Robot;
 
 public class StateRun implements State {
-	private Player player;
-	public StateRun(Player player) {
+	private Robot player;
+	public StateRun(Robot player) {
 		this.player = player;
 	}
 	@Override
@@ -15,7 +15,7 @@ public class StateRun implements State {
 	}
 	@Override
 	public void launchHead() {
-		player.setHeadlessTime(100);
+		player.setHeadlessTime(80);
 		player.setState(new StateHeadless(player));
 	}
 	@Override

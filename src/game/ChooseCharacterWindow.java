@@ -76,6 +76,12 @@ public class ChooseCharacterWindow {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnGo = new JButton("");
+		btnGo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Main main = new Main();
+				main.main(null);
+			}
+		});
 		btnGo.setBounds(6, 230, 228, 47);
 		frame.getContentPane().add(btnGo);
 		btnGo.setIcon(new ImageIcon(WelcomePage.class.getResource("/assets/go.gif")));

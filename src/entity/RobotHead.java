@@ -6,14 +6,14 @@ public class RobotHead {
 	private int x;
 	private int y;
 	private int vX;
-	private Player player;
+	private Robot robot;
 	private BufferedImage headImg;
 	private double angle;
-	public RobotHead(Player player) {
-		this.player = player;
-		this.headImg = player.getHeadImg();
-		this.x = player.getX();
-		this.y = player.getY();
+	public RobotHead(Robot robot) {
+		this.robot = robot;
+		this.headImg = robot.getHeadImg();
+		this.x = robot.getX();
+		this.y = robot.getY();
 		this.vX = 20;
 		this.angle = 0;
 	}
@@ -42,13 +42,13 @@ public class RobotHead {
 		return this.angle;
 	}
 	public void update() {
-		if (player.getHeadlessTime()>0) {
+		if (robot.getHeadlessTime()>0) {
 			this.x+=vX;
 			angle += Math.toRadians (20);
 		} else {
 			angle = 0;
-			this.y = player.getY();
-			this.x = player.getX();
+			this.y = robot.getY();
+			this.x = robot.getX();
 		}	
 	}
 }
