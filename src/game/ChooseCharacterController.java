@@ -5,6 +5,10 @@ import java.util.List;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+<<<<<<< HEAD
+=======
+import javax.swing.JLabel;
+>>>>>>> e69b7055fcf9db4a1b7a57f107df866f487f5d51
 
 import abstractFactory.FactoryProducer;
 import abstractFactory.Part;
@@ -17,7 +21,10 @@ public class ChooseCharacterController {
 
 	ChooseCharacterWindow window;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e69b7055fcf9db4a1b7a57f107df866f487f5d51
 	Leg[] legArr = new Leg [2];
 	Head[] headArr = new Head[4];
 	Body[] bodyArr = new Body[5];
@@ -38,6 +45,10 @@ public class ChooseCharacterController {
 	}
 
 	public void init(){
+<<<<<<< HEAD
+=======
+		
+>>>>>>> e69b7055fcf9db4a1b7a57f107df866f487f5d51
 		legArr[0] = legFactory.getLeg(1);
 		legArr[1] = legFactory.getLeg(2);
 		
@@ -53,10 +64,11 @@ public class ChooseCharacterController {
 		headArr[2] = headFactory.getHead(3);
 		headArr[3] = headFactory.getHead(4);
 
+<<<<<<< HEAD
 
-		window.headLabel.setIcon(new ImageIcon(headArr[0].getImage()));
-				window.bodyLabel.setIcon(new ImageIcon(bodyArr[0].getImage()));
-			window.legLabel.setIcon(new ImageIcon(legArr[0].getImage()));
+		//		window.headLabel.setIcon(new ImageIcon(headArr[0].getImage()));
+		//		window.bodyLabel.setIcon(new ImageIcon(bodyArr[0].getImage()));
+		//		window.legLabel.setIcon(new ImageIcon(legArr[0].getImage()));
 
 		headIterator = new NormalIterator(headArr);
 		bodyIterator = new NormalIterator(bodyArr);
@@ -130,4 +142,70 @@ public class ChooseCharacterController {
 
 	}
 
+=======
+		headIterator = new NormalIterator(headArr);
+		bodyIterator = new NormalIterator(bodyArr);
+		legIterator = new NormalIterator(legArr);
+		
+		window.headLabel.setIcon(new ImageIcon(headArr[0].getImage()));
+		window.bodyLabel.setIcon(new ImageIcon(bodyArr[0].getImage()));
+		window.legLabel.setIcon(new ImageIcon(legArr[0].getImage()));
+	}
+	
+	public void next(int a){
+		NormalIterator b;
+		JLabel label , nameLabel;
+		
+		if ( a == 1 ){
+			
+			b = headIterator;
+			label = window.headLabel;
+			nameLabel = window.headNameLabel;		
+		} else if ( a == 2 ) {
+	
+			b = bodyIterator;
+			label = window.bodyLabel;
+			nameLabel = window.bodyNameLabel;			
+		} else {
+			
+			b = legIterator;
+			label = window.legLabel;
+			nameLabel = window.legNameLabel;
+		}
+		
+		if ( b.hasNext() ){
+			Part part = b.next();
+			label.setIcon(new ImageIcon(part.getImage()));
+			nameLabel.setText(part.getName());
+		}
+	}
+	
+	public void previous(int a){
+		NormalIterator b;
+		JLabel label , nameLabel;
+		
+		if ( a == 1 ){
+			
+			b = headIterator;
+			label = window.headLabel;
+			nameLabel = window.headNameLabel;	
+		} else if ( a == 2 ) {
+			
+			b = bodyIterator;
+			label = window.bodyLabel;
+			nameLabel = window.bodyNameLabel;	
+		} else {
+			
+			b = legIterator;
+			label = window.legLabel;
+			nameLabel = window.legNameLabel;
+		}
+		
+		if ( b.hasPrev() ){
+			Part part = b.prev();
+			label.setIcon(new ImageIcon(part.getImage()));
+			nameLabel.setText(part.getName());
+		}
+	}
+>>>>>>> e69b7055fcf9db4a1b7a57f107df866f487f5d51
 }

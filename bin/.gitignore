@@ -1,6 +1,19 @@
+<<<<<<< HEAD
+/abstractFactory/
+/game/
+/legPart/
+/bodyPart/
+/headPart/
+/entity/
+/monster/
+=======
 /game/
 /assets/
 /assets.zip
+<<<<<<< HEAD
 /entity/
 /state/
 /monster/
+=======
+>>>>>>> e69b7055fcf9db4a1b7a57f107df866f487f5d51
+>>>>>>> 067c224ec5c9e78a5a2dcf25b6c1efd874f2675a
